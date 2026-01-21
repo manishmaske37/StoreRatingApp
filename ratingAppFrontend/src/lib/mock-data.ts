@@ -1,0 +1,202 @@
+import { User, Store, Rating, DashboardStats } from '@/types';
+
+// Mock users data
+export const mockUsers: User[] = [
+  {
+    id: 1,
+    name: 'Administrator Account User',
+    email: 'admin@storerating.com',
+    address: '123 Admin Street, Tech City, TC 12345',
+    role: 'ADMIN',
+    createdAt: '2024-01-01T00:00:00Z',
+  },
+  {
+    id: 2,
+    name: 'John Doe Regular Customer',
+    email: 'john.doe@email.com',
+    address: '456 User Lane, Customer Town, CT 67890',
+    role: 'USER',
+    createdAt: '2024-01-15T00:00:00Z',
+  },
+  {
+    id: 3,
+    name: 'Jane Smith Regular Customer',
+    email: 'jane.smith@email.com',
+    address: '789 Client Road, Buyer City, BC 11223',
+    role: 'USER',
+    createdAt: '2024-02-01T00:00:00Z',
+  },
+  {
+    id: 4,
+    name: 'Store Owner Coffee Shop',
+    email: 'coffee.owner@store.com',
+    address: '101 Coffee Ave, Bean Town, BT 44556',
+    role: 'STORE_OWNER',
+    createdAt: '2024-01-10T00:00:00Z',
+    rating: 4.5,
+  },
+  {
+    id: 5,
+    name: 'Store Owner Electronics Hub',
+    email: 'electronics.owner@store.com',
+    address: '202 Tech Blvd, Gadget City, GC 77889',
+    role: 'STORE_OWNER',
+    createdAt: '2024-01-20T00:00:00Z',
+    rating: 4.2,
+  },
+  {
+    id: 6,
+    name: 'Michael Johnson Customer',
+    email: 'michael.j@email.com',
+    address: '333 Shopper Street, Mall City, MC 99001',
+    role: 'USER',
+    createdAt: '2024-02-15T00:00:00Z',
+  },
+  {
+    id: 7,
+    name: 'Emily Davis Regular Shopper',
+    email: 'emily.davis@email.com',
+    address: '444 Consumer Drive, Shop Town, ST 22334',
+    role: 'USER',
+    createdAt: '2024-03-01T00:00:00Z',
+  },
+  {
+    id: 8,
+    name: 'Store Owner Fashion Boutique',
+    email: 'fashion.owner@store.com',
+    address: '555 Style Avenue, Fashion City, FC 55667',
+    role: 'STORE_OWNER',
+    createdAt: '2024-02-10T00:00:00Z',
+    rating: 4.8,
+  },
+];
+
+// Mock stores data
+export const mockStores: Store[] = [
+  {
+    id: 1,
+    name: 'Premium Coffee House Store',
+    email: 'contact@coffeehouse.com',
+    address: '101 Coffee Ave, Bean Town, BT 44556',
+    ownerId: 4,
+    ownerName: 'Store Owner Coffee Shop',
+    averageRating: 4.5,
+    totalRatings: 128,
+  },
+  {
+    id: 2,
+    name: 'Electronics Hub Technology Center',
+    email: 'support@electronicshub.com',
+    address: '202 Tech Blvd, Gadget City, GC 77889',
+    ownerId: 5,
+    ownerName: 'Store Owner Electronics Hub',
+    averageRating: 4.2,
+    totalRatings: 256,
+  },
+  {
+    id: 3,
+    name: 'Fashion Forward Boutique Store',
+    email: 'hello@fashionboutique.com',
+    address: '555 Style Avenue, Fashion City, FC 55667',
+    ownerId: 8,
+    ownerName: 'Store Owner Fashion Boutique',
+    averageRating: 4.8,
+    totalRatings: 89,
+  },
+  {
+    id: 4,
+    name: 'Fresh Grocery Supermarket Chain',
+    email: 'info@freshgrocery.com',
+    address: '666 Food Street, Grocery Town, GT 88990',
+    ownerId: 4,
+    ownerName: 'Store Owner Coffee Shop',
+    averageRating: 3.9,
+    totalRatings: 312,
+  },
+  {
+    id: 5,
+    name: 'Sports Equipment Warehouse',
+    email: 'sales@sportswarehouse.com',
+    address: '777 Athletic Lane, Sport City, SC 11223',
+    ownerId: 5,
+    ownerName: 'Store Owner Electronics Hub',
+    averageRating: 4.1,
+    totalRatings: 67,
+  },
+];
+
+// Mock ratings data
+export const mockRatings: Rating[] = [
+  {
+    id: 1,
+    userId: 2,
+    userName: 'John Doe Regular Customer',
+    userEmail: 'john.doe@email.com',
+    storeId: 1,
+    storeName: 'Premium Coffee House Store',
+    rating: 5,
+    createdAt: '2024-03-01T10:30:00Z',
+    updatedAt: '2024-03-01T10:30:00Z',
+  },
+  {
+    id: 2,
+    userId: 3,
+    userName: 'Jane Smith Regular Customer',
+    userEmail: 'jane.smith@email.com',
+    storeId: 1,
+    storeName: 'Premium Coffee House Store',
+    rating: 4,
+    createdAt: '2024-03-02T14:20:00Z',
+    updatedAt: '2024-03-02T14:20:00Z',
+  },
+  {
+    id: 3,
+    userId: 2,
+    userName: 'John Doe Regular Customer',
+    userEmail: 'john.doe@email.com',
+    storeId: 2,
+    storeName: 'Electronics Hub Technology Center',
+    rating: 4,
+    createdAt: '2024-03-03T09:15:00Z',
+    updatedAt: '2024-03-05T11:00:00Z',
+  },
+  {
+    id: 4,
+    userId: 6,
+    userName: 'Michael Johnson Customer',
+    userEmail: 'michael.j@email.com',
+    storeId: 3,
+    storeName: 'Fashion Forward Boutique Store',
+    rating: 5,
+    createdAt: '2024-03-04T16:45:00Z',
+    updatedAt: '2024-03-04T16:45:00Z',
+  },
+  {
+    id: 5,
+    userId: 7,
+    userName: 'Emily Davis Regular Shopper',
+    userEmail: 'emily.davis@email.com',
+    storeId: 1,
+    storeName: 'Premium Coffee House Store',
+    rating: 5,
+    createdAt: '2024-03-05T08:30:00Z',
+    updatedAt: '2024-03-05T08:30:00Z',
+  },
+];
+
+// Mock dashboard stats
+export const mockDashboardStats: DashboardStats = {
+  totalUsers: mockUsers.length,
+  totalStores: mockStores.length,
+  totalRatings: mockRatings.length,
+};
+
+// Current logged in user (for demo purposes)
+export const mockCurrentUser: User = {
+  id: 2,
+  name: 'John Doe Regular Customer',
+  email: 'john.doe@email.com',
+  address: '456 User Lane, Customer Town, CT 67890',
+  role: 'USER',
+  createdAt: '2024-01-15T00:00:00Z',
+};
